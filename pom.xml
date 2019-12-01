@@ -8,6 +8,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>01-mybatis-hello</module>
+		<module>02-mybatis-config</module>
 	</modules>
 	
 	<properties>
