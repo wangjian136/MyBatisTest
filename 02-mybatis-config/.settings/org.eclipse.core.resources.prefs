@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+encoding//src/main/resources/log4j.properties=GBK
+encoding//src/main/resources/org/mybatis/example/config.properties=GBK
+encoding/pom.xml=GBK

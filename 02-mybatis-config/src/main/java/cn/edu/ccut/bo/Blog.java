@@ -1,22 +1,20 @@
 package cn.edu.ccut.bo;
 
-import org.apache.ibatis.type.Alias;
-
 //@Alias("blog")
 public class Blog {
 
 	private Integer id;
 	private String name;
-	private String desc;
+	private String descs;
 	public Blog() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Blog(Integer id, String name, String desc) {
+	public Blog(Integer id, String name, String descs) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.desc = desc;
+		this.descs = descs;
 	}
 	public Integer getId() {
 		return id;
@@ -31,13 +29,13 @@ public class Blog {
 		this.name = name;
 	}
 	public String getDesc() {
-		return desc;
+		return descs;
 	}
 	public void setDesc(String desc) {
-		this.desc = desc;
+		this.descs = desc;
 	}
 	@Override
 	public String toString() {
-		return "Blog [id=" + id + ", name=" + name + ", desc=" + desc + "]";
+		return "Blog [id=" + id + ", name=" + name + ", descs=" + descs + "]";
 	}
 }

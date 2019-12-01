@@ -1,13 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="GBK" ?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   
 <configuration>
 	<properties resource="org/mybatis/example/config.properties">
-		<property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true"/> <!-- å¯ç”¨é»˜è®¤å€¼ç‰¹æ€§ -->
-		<!-- <property name="org.apache.ibatis.parsing.PropertyParser.default-value-separator" value="?:"/> --> <!-- ä¿®æ”¹é»˜è®¤å€¼çš„åˆ†éš”ç¬¦ -->
+		<property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true"/> <!-- ÆôÓÃÄ¬ÈÏÖµÌØÐÔ -->
+		<!-- <property name="org.apache.ibatis.parsing.PropertyParser.default-value-separator" value="?:"/> --> <!-- ÐÞ¸ÄÄ¬ÈÏÖµµÄ·Ö¸ô·û -->
 	</properties>
+	<settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
 	<typeAliases>
 		<!-- <typeAlias alias="Blog" type="cn.edu.ccut.bo.Blog"/> -->
 		<package name="cn.edu.ccut.bo"/>

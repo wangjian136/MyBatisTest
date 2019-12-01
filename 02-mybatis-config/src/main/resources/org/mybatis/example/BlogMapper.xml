@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="GBK" ?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -6,4 +6,12 @@
 	<select id="selectBlog" resultType="Blog">
 		select * from Blog where id = #{id}
 	</select>
+	
+	<select id="selectAllBlog" resultType="Blog">
+		select * from Blog
+	</select>
+	
+	<insert id="createBlog" parameterType="Blog">
+        insert into Blog(id,name,descs) values (#{id},#{name},#{descs})
+    </insert>
 </mapper>
