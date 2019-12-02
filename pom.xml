@@ -11,6 +11,7 @@
 		<module>02-mybatis-config</module>
 		<module>03-mybatis-interface</module>
 		<module>04-mybatis-interface-extend</module>
+		<module>05-mybatis-dynamic-sql</module>
 	</modules>
 	
 	<properties>
