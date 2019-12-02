@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cn.edu.ccut.bo.Blog;
+import cn.edu.ccut.mapper.BlogMapper;
 
 public class MyBatisTest {
 	
@@ -18,28 +19,30 @@ public class MyBatisTest {
 	
 	@Before
 	public void init() throws Exception {
-		String resource = "org/mybatis/example/mybatis-config.xml";
+		String resource = "mybatis-config.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 	}
 
 	@Test
-	public void testMybatisInit(){
+	public void testMybatisInterface(){
 		try (SqlSession session = sqlSessionFactory.openSession()) {
-			Blog blog = (Blog) session.selectOne("org.mybatis.example.BlogMapper.selectBlog", 101);
-			System.out.println(blog);
-			List<Blog> blogs = session.selectList("selectAllBlog");
-			System.out.println(blogs);
+			 BlogMapper mapper = session.getMapper(BlogMapper.class);
+			 Blog blog = mapper.selectBlog(101);
+			 List<Blog> blogs = mapper.selectAllBlog();
+			 System.out.println(blog);
+			 System.out.println(blogs);
 		}
 	}
 	
 	
 	@Test
-	public void testMybatisInit2() throws Exception {
+	public void testMybatisInterface2() throws Exception {
 		try (SqlSession session = sqlSessionFactory.openSession()) {
 			Blog blog = new Blog(106,"PHP", "PHP从入门到放弃");
-			session.insert("createBlog", blog);
-			//session.commit();
+			BlogMapper mapper = session.getMapper(BlogMapper.class);
+			mapper.createBlog(blog);
+			session.commit();
 		}
 	}
 }

@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   
 <configuration>
-	<properties resource="org/mybatis/example/config.properties">
+	<properties resource="config.properties">
 		<property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true"/> <!-- 启用默认值特性 -->
 		<!-- <property name="org.apache.ibatis.parsing.PropertyParser.default-value-separator" value="?:"/> --> <!-- 修改默认值的分隔符 -->
 	</properties>
@@ -28,6 +28,6 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="org/mybatis/example/BlogMapper.xml" />
+		<mapper resource="cn/edu/ccut/mapper/BlogMapper.xml" />
 	</mappers>
 </configuration>
