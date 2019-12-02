@@ -3,15 +3,82 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.ccut.mapper.BlogMapper">
-	<select id="selectBlog" resultType="Blog">
-		select * from Blog where id = #{id}
+	<select id="selectBlog1" resultType="Blog">
+		select * from Blog where 1=1
+		<if test="id != null">
+			and id = #{id}
+		</if>
 	</select>
+	
+	<select id="selectBlog2" resultType="Blog">
+		select * from Blog
+		<where>
+			<if test="id != null">
+				and id = #{id}
+			</if>
+		</where>
+	</select>
+	
+	<select id="selectBlog3" resultType="Blog">
+		select * from Blog
+		<where>
+            <choose>
+                <when test="id != null">
+                    and id = #{id}
+                </when>
+                <otherwise>
+                    and id = 102
+                </otherwise>
+            </choose>
+        </where>
+	</select>
+	
+	<update id="updateBlog1" parameterType="Blog">
+        update blog
+        <set>
+            name = #{name},
+            descs = #{descs},
+        </set>
+        where id = #{id}
+    </update>
+    
+    <update id="updateBlog2" parameterType="Blog">
+        update blog
+        <trim prefix="set" suffixOverrides=",">
+        	name = #{name},
+            descs = #{descs},
+        </trim>
+        where id = #{id}
+    </update>
+	
+	<select id="selectAllBlogByName" resultType="Blog">
+		select * from Blog
+		<bind name="name" value="'%'+name+'%'"/>
+		<where>
+			name like #{name}
+		</where>
+	</select>
+	
+	<delete id="delBlog" parameterType="collection">
+        delete from Blog
+        <where>
+            id in
+            <foreach collection="collection" item="id" open="(" close=")" separator=",">
+                #{id}
+            </foreach>
+        </where>
+    </delete>
+	
+	<select id="findTest" resultType="Blog">
+        select <include refid="str"></include> from Blog
+    </select>
+    
+    <sql id="str">
+        name,descs
+    </sql>
+    
 	
 	<select id="selectAllBlog" resultType="Blog">
 		select * from Blog
 	</select>
-	
-	<insert id="createBlog" parameterType="Blog">
-        insert into Blog(id,name,descs) values (#{id},#{name},#{descs})
-    </insert>
 </mapper>
