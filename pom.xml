@@ -9,6 +9,7 @@
 	<modules>
 		<module>01-mybatis-hello</module>
 		<module>02-mybatis-config</module>
+		<module>03-mybatis-interface</module>
 	</modules>
 	
 	<properties>
