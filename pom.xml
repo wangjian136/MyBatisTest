@@ -13,6 +13,7 @@
 		<module>04-mybatis-interface-extend</module>
 		<module>05-mybatis-dynamic-sql</module>
 		<module>06-mybatis-cache</module>
+		<module>07-mybatis-relation-xml</module>
 	</modules>
 	
 	<properties>

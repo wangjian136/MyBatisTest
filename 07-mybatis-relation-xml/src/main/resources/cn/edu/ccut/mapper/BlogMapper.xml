@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ccut.mapper.BlogMapper">
+
+	<cache readOnly="true"></cache>
+
+	<resultMap id="selBlog" type="Blog">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="descs" column="descs"/>
+        <association property="author" select="cn.edu.ccut.mapper.AuthorMapper.selAuthorById" column="author_id"/>
+    </resultMap>
+
+	<select id="selectAllBlog" resultMap="selBlog">
+		select * from Blog
+	</select>
+	
+	<select id="selByAuthorId" resultType="Blog">
+		select * from Blog where author_id = #{arg0}
+	</select>
+</mapper>
