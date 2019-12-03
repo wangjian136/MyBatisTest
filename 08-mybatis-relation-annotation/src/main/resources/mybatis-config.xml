@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+	<properties resource="config.properties">
+		<property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true"/> <!-- 启用默认值特性 -->
+		<!-- <property name="org.apache.ibatis.parsing.PropertyParser.default-value-separator" value="?:"/> --> <!-- 修改默认值的分隔符 -->
+	</properties>
+	<settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+	<typeAliases>
+		<!-- <typeAlias alias="Blog" type="cn.edu.ccut.bo.Blog"/> -->
+		<package name="cn.edu.ccut.bo"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<!-- <property name="username" value="${username:root}" /> -->
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<package name="cn.edu.ccut.mapper"/>
+	</mappers>
+</configuration>

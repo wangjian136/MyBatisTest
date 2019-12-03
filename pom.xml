@@ -14,6 +14,7 @@
 		<module>05-mybatis-dynamic-sql</module>
 		<module>06-mybatis-cache</module>
 		<module>07-mybatis-relation-xml</module>
+		<module>08-mybatis-relation-annotation</module>
 	</modules>
 	
 	<properties>
